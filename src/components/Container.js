@@ -108,7 +108,7 @@ const Container = () => {
 		},
 		[layout, components]
 	);
-	/* const renderRow = (row, currentPath) => {
+	const renderRow = (row, currentPath) => {
 		return (
 			<Row
 				key={row.id}
@@ -118,7 +118,7 @@ const Container = () => {
 				path={currentPath}
 			/>
 		);
-	}; */
+	};
 
 	return (
 		<div className='pageWrapper'>
@@ -143,7 +143,7 @@ const Container = () => {
 										onDrop={handleDrop}
 										path={currentPath}
 									/>
-									{/* {renderRow(row, currentPath)} */}
+									{renderRow(row, currentPath)}
 								</React.Fragment>
 							);
 						})}
