@@ -1,12 +1,12 @@
+import React from 'react';
 import { useDrag } from 'react-dnd';
 
-function SideBarItem({ data }) {
+const SidebarItem = ({ data }) => {
 	const [collected, drag, dragPreview] = useDrag(() => ({
 		type: data.type,
 		item: { id: data.id },
-		// TODO: Add opacity functionality while dragging
 		collect: (monitor) => ({
-			opacity: monitor.isDragging() ? 0.4 : 1,
+			opacity: monitor.isDragging() ? 0.3 : 1,
 		}),
 	}));
 	return collected.isDragging ? (
@@ -16,5 +16,6 @@ function SideBarItem({ data }) {
 			{data.component.type}
 		</div>
 	);
-}
-export default SideBarItem;
+};
+
+export default SidebarItem;

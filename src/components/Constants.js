@@ -1,9 +1,9 @@
-export const SIDEBAR_ITEM = 'sidebarItem';
-export const ROW = 'row';
-export const COLUMN = 'column';
-export const COMPONENT = 'component';
+const SIDEBAR_ITEM = 'sidebarItem';
+const ROW = 'row';
+const COLUMN = 'column';
+const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS = [
+const SIDEBAR_ITEMS = [
 	{
 		id: '0',
 		type: SIDEBAR_ITEM,
@@ -13,7 +13,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '01',
+		id: '1',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'column',
@@ -21,7 +21,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '1',
+		id: '2',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'input',
@@ -29,7 +29,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '2',
+		id: '3',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'name',
@@ -37,7 +37,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '3',
+		id: '4',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'email',
@@ -45,7 +45,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '4',
+		id: '5',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'phone',
@@ -53,7 +53,7 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '5',
+		id: '6',
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'image',
@@ -61,3 +61,5 @@ export const SIDEBAR_ITEMS = [
 		},
 	},
 ];
+
+export { SIDEBAR_ITEM, SIDEBAR_ITEMS, ROW, COLUMN, COMPONENT };

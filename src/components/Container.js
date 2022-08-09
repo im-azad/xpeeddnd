@@ -1,5 +1,5 @@
 import React from 'react';
-import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from './Contants';
+import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from './Constants';
 import SidebarItem from './SidebarItem';
 const Container = () => {
 	return (

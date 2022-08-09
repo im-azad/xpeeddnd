@@ -7,7 +7,7 @@ function App() {
 	return (
 		<div className='App'>
 			<DndProvider backend={HTML5Backend}>
-				<Container></Container>
+				<Container />
 			</DndProvider>
 		</div>
 	);
