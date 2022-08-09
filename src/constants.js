@@ -1,27 +1,13 @@
-const SIDEBAR_ITEM = 'sidebarItem';
-const ROW = 'row';
-const COLUMN = 'column';
-const COMPONENT = 'component';
+import shortid from 'shortid';
 
-const SIDEBAR_ITEMS = [
+export const SIDEBAR_ITEM = 'sidebarItem';
+export const ROW = 'row';
+export const COLUMN = 'column';
+export const COMPONENT = 'component';
+
+export const SIDEBAR_ITEMS = [
 	{
-		id: '0',
-		type: SIDEBAR_ITEM,
-		component: {
-			type: 'row',
-			content: 'Row',
-		},
-	},
-	{
-		id: '1',
-		type: SIDEBAR_ITEM,
-		component: {
-			type: 'column',
-			content: 'Column',
-		},
-	},
-	{
-		id: '2',
+		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'input',
@@ -29,7 +15,7 @@ const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '3',
+		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'name',
@@ -37,7 +23,7 @@ const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '4',
+		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'email',
@@ -45,7 +31,7 @@ const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '5',
+		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'phone',
@@ -53,7 +39,7 @@ const SIDEBAR_ITEMS = [
 		},
 	},
 	{
-		id: '6',
+		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'image',
@@ -61,5 +47,3 @@ const SIDEBAR_ITEMS = [
 		},
 	},
 ];
-
-export { SIDEBAR_ITEM, SIDEBAR_ITEMS, ROW, COLUMN, COMPONENT };
