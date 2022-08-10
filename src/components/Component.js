@@ -3,9 +3,6 @@ import { useDrag } from 'react-dnd';
 import { COMPONENT } from '../constants';
 
 const style = {
-	border: '1px dashed black',
-	padding: '0.5rem 1rem',
-	backgroundColor: 'white',
 	cursor: 'move',
 };
 const Component = ({ data, components, path }) => {
@@ -30,8 +27,7 @@ const Component = ({ data, components, path }) => {
 			style={{ ...style, opacity }}
 			className='component draggable'
 		>
-			<div>{data.id}</div>
-			<div>{component?.content}</div>
+			<p className='componentContent'>{component?.content}</p>
 		</div>
 	);
 };

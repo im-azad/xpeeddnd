@@ -40,7 +40,7 @@ const Column = ({ data, components, handleDrop, path }) => {
 			style={{ ...style, opacity }}
 			className='base draggable column'
 		>
-			{data.id}
+			<p>Column</p>
 			{data.children?.map((component, index) => {
 				const currentPath = `${path}-${index}`;
 
@@ -59,8 +59,8 @@ const Column = ({ data, components, handleDrop, path }) => {
 			})}
 			<DropZone
 				data={{
-					path: `${path}-${data.children.length}`,
-					childrenCount: data.children.length,
+					path: `${path}-${data.children?.length}`,
+					childrenCount: data.children?.length,
 				}}
 				onDrop={handleDrop}
 				isLast

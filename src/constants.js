@@ -11,7 +11,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'input',
-			content: 'Some input',
+			content: 'Input Element',
 		},
 	},
 	{
@@ -19,7 +19,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'name',
-			content: 'Some name',
+			content: 'Name Element',
 		},
 	},
 	{
@@ -27,7 +27,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'email',
-			content: 'Some email',
+			content: 'Email Element',
 		},
 	},
 	{
@@ -35,7 +35,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'phone',
-			content: 'Some phone',
+			content: 'Phone Element',
 		},
 	},
 	{
@@ -43,7 +43,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'image',
-			content: 'Some image',
+			content: 'Image Element',
 		},
 	},
 	{
@@ -59,7 +59,7 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'column',
-			content: 'Layout Column',
+			content: 'Layout Row',
 		},
 	},
 ];
