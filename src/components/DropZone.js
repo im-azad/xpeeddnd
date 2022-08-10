@@ -70,7 +70,6 @@ const DropZone = ({ data, onDrop, isLast, className }) => {
 			canDrop: monitor.canDrop(),
 		}),
 	});
-
 	const isActive = isOver && canDrop;
 	return (
 		<div

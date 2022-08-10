@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from '../constants';
+
 import SidebarItem from './SidebarItem';
 import initialData from '../initial-data';
 import DropZone from './DropZone';
+
 import Row from './Row';
+
 import {
 	handleMoveSidebarComponentIntoParent,
 	handleMoveToDifferentParent,
@@ -12,6 +15,7 @@ import {
 } from '../helpers';
 import shortid from 'shortid';
 import TrashDropZone from './TrashDopZone';
+
 const Container = () => {
 	// initial page layout
 	const initialLayout = initialData.layout;
