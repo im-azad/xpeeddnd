@@ -128,3 +128,10 @@
 	margin: 0;
 	font-weight: 600;
 }
+
+/* object data style */
+
+.layout-data-area {
+	border: 1px solid #669fe0;
+	padding: 20px;
+}

@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Modal } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
+
 import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from '../constants';
 import SidebarItem from './SidebarItem';
 import initialData from '../initial-data';
@@ -14,6 +15,7 @@ import {
 } from '../helpers';
 import shortid from 'shortid';
 import TrashDropZone from './TrashDopZone';
+import ObjectData from './ObjectData';
 
 const Container = () => {
 	// Initial page layout state declaration
@@ -189,6 +191,8 @@ const Container = () => {
 						}}
 						onDrop={handleDropToTrashBin}
 					/>
+
+					<ObjectData objectData={layout} />
 					{/* Popup modal */}
 					<Modal
 						title='Item Clicked'
