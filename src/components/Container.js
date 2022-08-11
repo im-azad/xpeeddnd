@@ -1,12 +1,11 @@
 import React, { useCallback, useState } from 'react';
+import { Modal } from 'antd';
+import 'antd/dist/antd.css';
 import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from '../constants';
-
 import SidebarItem from './SidebarItem';
 import initialData from '../initial-data';
 import DropZone from './DropZone';
-
 import Row from './Row';
-
 import {
 	handleMoveSidebarComponentIntoParent,
 	handleMoveToDifferentParent,
@@ -17,25 +16,18 @@ import shortid from 'shortid';
 import TrashDropZone from './TrashDopZone';
 
 const Container = () => {
-	// initial page layout
+	// Initial page layout state declaration
 	const initialLayout = initialData.layout;
 	const initialComponents = initialData.components;
 	const [layout, setLayout] = useState(initialLayout);
 	const [components, setComponents] = useState(initialComponents);
+	//Modal state declaration
+	const [isModalVisible, setIsModalVisible] = useState(false);
+	const [modalText, setModalText] = useState('');
 
-	const handleDropToTrashBin = useCallback(
-		(dropZone, item) => {
-			const splitItemPath = item.path.split('-');
-			setLayout(handleRemoveItemFromLayout(layout, splitItemPath));
-		},
-		[layout]
-	);
-
+	// Handle drop component
 	const handleDrop = useCallback(
 		(dropZone, item) => {
-			console.log('dropZone', dropZone);
-			console.log('item', item);
-
 			const splitDropZonePath = dropZone.path.split('-');
 			const pathToDropZone = splitDropZonePath.slice(0, -1).join('-');
 
@@ -69,7 +61,7 @@ const Container = () => {
 				return;
 			}
 
-			// move down here since sidebar items dont have path
+			// move down here since sidebar items don't have path
 			const splitItemPath = item.path.split('-');
 			const pathToItem = splitItemPath.slice(0, -1).join('-');
 
@@ -87,8 +79,8 @@ const Container = () => {
 					return;
 				}
 
-				// 2.b. OR move different parent
-				// TODO FIX columns. item includes children
+				// 2.b. move different parent
+
 				setLayout(
 					handleMoveToDifferentParent(
 						layout,
@@ -112,6 +104,7 @@ const Container = () => {
 		},
 		[layout, components]
 	);
+	// Handle row component
 	const renderRow = (row, currentPath) => {
 		return (
 			<Row
@@ -123,22 +116,50 @@ const Container = () => {
 			/>
 		);
 	};
+	// Handle drop trash bin
+	const handleDropToTrashBin = useCallback(
+		(dropZone, item) => {
+			const splitItemPath = item.path.split('-');
+			setLayout(handleRemoveItemFromLayout(layout, splitItemPath));
+		},
+		[layout]
+	);
+
+	//Handle item id and show id popup modal
+	const handleId = (e) => {
+		let id = e.target.id;
+		if (id) {
+			setIsModalVisible(true);
+			setModalText(`Item id: ${id}`);
+		}
+	};
+
+	// Modal handler
+	const handleOk = () => {
+		setIsModalVisible(false);
+	};
+
+	const handleCancel = () => {
+		setIsModalVisible(false);
+	};
 
 	return (
 		<div className='pageWrapper'>
+			{/* Sidebar component */}
 			<div className='sideBar'>
 				{SIDEBAR_ITEMS?.map((sideBarItem, index) => (
 					<SidebarItem key={sideBarItem.id} data={sideBarItem} />
 				))}
 			</div>
+			{/* Page layout container */}
 			{
 				<div className='pageContainer'>
-					<div className='page'>
+					<div className='page' onClick={handleId}>
 						{layout.map((row, index) => {
 							const currentPath = `${index}`;
-
 							return (
 								<div key={row.id}>
+									{/* row dropZone component*/}
 									<DropZone
 										data={{
 											path: currentPath,
@@ -151,6 +172,7 @@ const Container = () => {
 								</div>
 							);
 						})}
+						{/* checked last dropZone component*/}
 						<DropZone
 							data={{
 								path: `${layout.length}`,
@@ -160,13 +182,23 @@ const Container = () => {
 							isLast
 						/>
 					</div>
-
+					{/* Trash dropzone component */}
 					<TrashDropZone
 						data={{
 							layout,
 						}}
 						onDrop={handleDropToTrashBin}
 					/>
+					{/* Popup modal */}
+					<Modal
+						title='Item Clicked'
+						centered
+						visible={isModalVisible}
+						onOk={handleOk}
+						onCancel={handleCancel}
+					>
+						<p>{modalText}</p>
+					</Modal>
 				</div>
 			}
 		</div>

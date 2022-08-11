@@ -6,15 +6,19 @@ import Component from './Component';
 
 const style = {};
 const Column = ({ data, components, handleDrop, path }) => {
+	// react useRef hooks
 	const ref = useRef(null);
 
+	// column drag source useDrag hook
+	// type and item required.type must be either a string or a symbol and item should be object or function
 	const [{ isDragging }, drag] = useDrag({
+		type: COLUMN,
 		item: {
 			id: data.id,
 			children: data.children,
 			path,
 		},
-		type: COLUMN,
+
 		collect: (monitor) => ({
 			isDragging: monitor.isDragging(),
 		}),
@@ -23,6 +27,7 @@ const Column = ({ data, components, handleDrop, path }) => {
 	const opacity = isDragging ? 0 : 1;
 	drag(ref);
 
+	// renderComponent function return component
 	const renderComponent = (component, currentPath) => {
 		return (
 			<Component
@@ -40,12 +45,12 @@ const Column = ({ data, components, handleDrop, path }) => {
 			style={{ ...style, opacity }}
 			className='base draggable column'
 		>
-			<p>Column</p>
+			<p id={data.id}>Column</p>
 			{data.children?.map((component, index) => {
 				const currentPath = `${path}-${index}`;
 
 				return (
-					<React.Fragment key={component.id}>
+					<div key={component.id}>
 						<DropZone
 							data={{
 								path: currentPath,
@@ -54,7 +59,7 @@ const Column = ({ data, components, handleDrop, path }) => {
 							onDrop={handleDrop}
 						/>
 						{renderComponent(component, currentPath)}
-					</React.Fragment>
+					</div>
 				);
 			})}
 			<DropZone

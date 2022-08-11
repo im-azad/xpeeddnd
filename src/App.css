@@ -1,7 +1,9 @@
+/* page style */
 .pageWrapper {
 	display: flex;
 }
 
+/* sidebar style */
 .sideBar {
 	flex: 0 0 300px;
 	background-color: #e1e1e1;
@@ -12,7 +14,7 @@
 	padding: 10px;
 	font-size: 16px;
 	font-weight: 600;
-	border: 1px solid rgb(51, 45, 45);
+	border: 1px solid #332d2d;
 	text-align: center;
 	text-transform: capitalize;
 	border-radius: 6px;
@@ -20,6 +22,8 @@
 .sidebarItem:not(:last-child) {
 	margin-bottom: 10px;
 }
+
+/* page container layout style  */
 .pageContainer {
 	flex: 0 0 calc(100% - 300px);
 	padding: 20px;
@@ -31,14 +35,12 @@
 	margin: 20px;
 	border: 1px solid green;
 }
+
+/*drop zone style*/
 .dropZone {
 	flex: 0 0 auto;
 	height: 40px;
 	transition: 200ms all;
-}
-
-.dropZone:nth-of-type(2n) {
-	display: none;
 }
 
 .dropZone.horizontalDrag {
@@ -54,54 +56,8 @@
 	background-color: green;
 	transition: 0.3s ease;
 }
-.trashDropZone.active {
-	transition: 0.3s ease;
-	background-color: red;
-}
 
-.component {
-	height: 60px;
-	padding: 10px;
-	background: #aaa;
-	display: grid;
-	align-items: center;
-	justify-content: center;
-	border: 1px dashed #ddd;
-	padding: 0.5rem 1rem;
-	background-color: #fff;
-}
-
-.column {
-	border: 1px solid blue;
-	/* flex: 1 1 100%; */
-	width: 100%;
-	max-width: 100%;
-	padding: 10px;
-	resize: horizontal;
-	overflow: hidden;
-	cursor: col-resize;
-}
-
-.columns {
-	display: flex;
-	padding: 20px 0;
-}
-
-.columnContainer {
-	display: flex;
-}
-
-.base {
-	padding: 0.5rem 1rem;
-	background-color: white;
-	cursor: move;
-}
-
-.row {
-	border: 1px solid red;
-	padding: 0;
-}
-
+/* trash drop zone style */
 .trashDropZone {
 	position: relative;
 	text-align: center;
@@ -115,16 +71,60 @@
 	justify-content: center;
 	border-radius: 6px;
 }
-
-.pageContainer {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	margin-bottom: 100px;
+.trashDropZone.active {
+	transition: 0.3s ease;
+	background-color: red;
 }
 
+/* base style */
+.base {
+	padding: 0.5rem 1rem;
+	background-color: white;
+	cursor: move;
+}
+.base p {
+	cursor: pointer;
+	padding: 10px;
+	margin: 0;
+}
+
+/* row style */
+.row {
+	border: 1px solid red;
+	padding: 10px;
+	margin: 10px;
+}
+
+/* column style */
+.column {
+	border: 1px solid #1b1bd8;
+	width: 100%;
+	max-width: 100%;
+	padding: 10px;
+	resize: horizontal;
+	overflow: hidden;
+}
+
+.columns {
+	display: flex;
+	padding: 20px 0;
+}
+
+.columnContainer {
+	display: flex;
+}
+
+/* component style */
+.component {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	border: 1px dashed #ddd;
+	background-color: #fff;
+}
 .componentContent {
 	text-align: center;
+	padding: 10px;
 	margin: 0;
 	font-weight: 600;
 }

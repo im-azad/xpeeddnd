@@ -2,6 +2,9 @@ import React from 'react';
 import { useDrag } from 'react-dnd';
 
 const SidebarItem = ({ data }) => {
+	// sidebarItem drag source useDrag hook
+	// type and item required.type must be either a string or a symbol and item should be object or function
+
 	const [collected, drag, dragPreview] = useDrag(() => ({
 		item: data,
 		type: data.type,
@@ -13,7 +16,7 @@ const SidebarItem = ({ data }) => {
 		<div ref={dragPreview} />
 	) : (
 		<div className='sidebarItem' ref={drag} style={{ ...collected }}>
-			{data.component.type}
+			{data?.component?.type}
 		</div>
 	);
 };

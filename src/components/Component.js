@@ -5,8 +5,11 @@ import { COMPONENT } from '../constants';
 const style = {
 	cursor: 'move',
 };
+
 const Component = ({ data, components, path }) => {
 	const ref = useRef(null);
+	// component drag source useDrag hook
+	// type and item required.type must be either a string or a symbol and item should be object or function
 
 	const [{ isDragging }, drag] = useDrag({
 		item: { id: data.id, path },
@@ -27,7 +30,9 @@ const Component = ({ data, components, path }) => {
 			style={{ ...style, opacity }}
 			className='component draggable'
 		>
-			<p className='componentContent'>{component?.content}</p>
+			<p className='componentContent' id={data.id}>
+				{component?.content}
+			</p>
 		</div>
 	);
 };

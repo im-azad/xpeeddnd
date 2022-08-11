@@ -5,7 +5,10 @@ import { COMPONENT, SIDEBAR_ITEM, ROW, COLUMN } from '../constants';
 
 const ACCEPTS = [SIDEBAR_ITEM, COMPONENT, ROW, COLUMN];
 
+// dropZone component
 const DropZone = ({ data, onDrop, isLast, className }) => {
+	// DnD useDrop hooks provides drop target
+	// Specifying what types of data items the drop-target will accept and what props will collect
 	const [{ isOver, canDrop }, drop] = useDrop({
 		accept: ACCEPTS,
 		drop: (item, monitor) => {
@@ -18,9 +21,6 @@ const DropZone = ({ data, onDrop, isLast, className }) => {
 
 			// sidebar items can always be dropped anywhere
 			if (!itemPath) {
-				// if (data.childrenCount >= 3) {
-				//  return false;
-				// }
 				return true;
 			}
 

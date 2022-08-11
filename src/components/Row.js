@@ -7,7 +7,8 @@ import Column from './Column';
 const style = {};
 const Row = ({ data, components, handleDrop, path }) => {
 	const ref = useRef(null);
-
+	// row drag source useDrag hook
+	// type and item required.type must be either a string or a symbol and item should be object or function
 	const [{ isDragging }, drag] = useDrag({
 		item: {
 			id: data.id,
@@ -41,7 +42,7 @@ const Row = ({ data, components, handleDrop, path }) => {
 			style={{ ...style, opacity }}
 			className='base draggable row'
 		>
-			<p>Row</p>
+			<p id={data.id}>Row</p>
 			<div className='columns'>
 				{data.children.map((column, index) => {
 					const currentPath = `${path}-${index}`;

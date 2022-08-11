@@ -1,11 +1,11 @@
 import shortid from 'shortid';
 
-export const SIDEBAR_ITEM = 'sidebarItem';
-export const ROW = 'row';
-export const COLUMN = 'column';
-export const COMPONENT = 'component';
+const ROW = 'row';
+const COLUMN = 'column';
+const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS = [
+const SIDEBAR_ITEM = 'sidebarItem';
+const SIDEBAR_ITEMS = [
 	{
 		id: shortid.generate(),
 		type: SIDEBAR_ITEM,
@@ -59,7 +59,9 @@ export const SIDEBAR_ITEMS = [
 		type: SIDEBAR_ITEM,
 		component: {
 			type: 'column',
-			content: 'Layout Row',
+			content: 'Layout Column',
 		},
 	},
 ];
+
+export { ROW, COLUMN, COMPONENT, SIDEBAR_ITEM, SIDEBAR_ITEMS };
