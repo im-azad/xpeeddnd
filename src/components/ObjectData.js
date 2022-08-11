@@ -12,19 +12,19 @@ const ObjectData = ({ objectData }) => {
 		<div>
 			<h2>Full Object Data:</h2>
 			<div className='layout-data-area'>
-				{layoutObject.map(
+				{layoutObject?.map(
 					(data) => `
 				{
 					layout:
 					[
 						type: ${data.type},
 						id: ${data.id},
-						children: ${data?.children.map(
+						children: ${data?.children?.map(
 							(item) => `
 							[
 								type: ${item.type},
 								id: ${item.id},
-								children: ${item?.children.map(
+								children: ${item?.children?.map(
 									(children) => `
 									[
 										type: ${children.type},
